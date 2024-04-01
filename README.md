@@ -66,3 +66,39 @@ Il est nécessaire de remplacer les valeurs suivantes :
 * PLEXPORT : Par le port du serveur Plex
 * PLEXTOKEN : Par le token du serveur Plex
 * PLEXRATINGKEY : Par la valeur présente dans le fichier ```failedRatingKeys.txt```
+
+# Docker
+## Conteneur
+
+Il est également possible de lancer le script via un conteneur. Il faut dans un premier temps créer un fichier ```config.json``` que l'on déposeras dans le répertoire ```/path/to/folder/config``` du conteneur. C'est le premier prérequis.
+Il faut remplacer les champs par vos informations :
+```
+{
+  "token": "YourPlexToken",
+  "ip": "YourPlexIP",
+  "port": "YourPlexPort",
+  "username": "YourTvTimeEmail",
+  "password": "YourTvTimePassword"
+}
+```
+
+Il est ensuite possible de lancer le conteneur :
+
+```
+docker run -d \
+	--name plextvtime \
+	-v /path/to/folder/config:/PlexTvTime/config \
+	-v /path/to/folder/data:/PlexTvTime/data \
+	-e crontab="0 5 * * *" \
+	antouane44/plextvtime:latest
+```
+
+Le champ crontab défini le lancement du script. C'est le deuxième prérequis.
+
+> **_NOTE:_** Le cron est en UTC.
+
+## Dockerfile
+
+Il est possible de build sa propre image docker en modifiant le fichier Dockerfile et en lançant la commande suivante :
+
+```docker build -t plextvtime .```
