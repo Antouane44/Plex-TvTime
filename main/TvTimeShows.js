@@ -170,10 +170,10 @@ async function watchEpisodes(initialJwtToken, episodeIds, credentials) {
                         } else {
                             console.log(`Épisode ${episodeId} a déjà été signalé comme introuvable.`);
                         }
-						// Supprimer l'épisode de SHOWS_DB_FILE_PATH
-						const existingEpisodes = (await fs.readFileSync(SHOWS_DB_FILE_PATH, 'utf8')).split('\n').filter(id => id.trim() !== '');
-						const filteredEpisodes = existingEpisodes.filter(id => id !== episodeId);
-						await fs.writeFileSync(SHOWS_DB_FILE_PATH, filteredEpisodes.join('\n'));
+			// Supprimer l'épisode de SHOWS_DB_FILE_PATH
+			const existingEpisodes = (await fs.readFileSync(SHOWS_DB_FILE_PATH, 'utf8')).split('\n').filter(id => id.trim() !== '');
+			const filteredEpisodes = existingEpisodes.filter(id => id !== episodeId);
+			await fs.writeFileSync(SHOWS_DB_FILE_PATH, filteredEpisodes.join('\n'));
                         break; // Sortir de la boucle while en cas d'erreur 404
                     } else {
                         throw new Error(`Fetch failed with status ${response.status}`);
