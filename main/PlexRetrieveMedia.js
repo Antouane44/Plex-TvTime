@@ -388,7 +388,7 @@ async function retrieveMedia() {
             }
 
             const moviesUrl = `http://${plexConfig.ip}:${plexConfig.port}/library/sections/${libraryIdMovies}/all?unwatched=0`;
-            const tvShowsUrl = `http://${plexConfig.ip}:${plexConfig.port}/library/sections/${libraryIdTvShows}/all?unwatched=0&episode.viewCount=1&type=4`;
+            const tvShowsUrl = `http://${plexConfig.ip}:${plexConfig.port}/library/sections/${libraryIdTvShows}/all?unwatched=0&type=4`;
 
             try {
                 await getMoviesTitles(moviesUrl, plexConfig.token, plexConfig);
