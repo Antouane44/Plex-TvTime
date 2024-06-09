@@ -2,6 +2,8 @@
 
 Ce script permets de récupérer les films et séries vu sur Plex afin de les marquer comme vue sur TvTime. Ce script est en version Beta, certaines erreurs peuvent survenir.
 
+Pour cloner ce projet, utiliser la commande : ```git lfs clone https://github.com/Antouane44/Plex-TvTime.git```
+
 # Fonctionnement
 
 1. Les informations de connexion à Plex et TvTime sont demandés si celles-ci ne sont pas déjà présentes dans le fichier ```config.json```.
