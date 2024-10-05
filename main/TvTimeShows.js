@@ -43,7 +43,7 @@ async function watchShowsTvTime() {
     await sleep(5000);
 
     let initialJwtToken = null;
-    for (let i = 1; i <= 3; i++) {
+    for (let i = 1; i <= 10; i++) {
         // Pause de 5 secondes, plus 2 secondes supplémentaires pour chaque itération
         await sleep(5000 + (2000 * i));
 
